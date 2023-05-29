@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if @user != nil
       # Check to see if the password entered by the user is the same we have on file
       # If the passwords don't match, allow them to try again
-      if @user["password"] != params["password"]
+      if BCrypt::Password.new(@user["password"]) != params["password"]
         flash["notice"] = "Wrong Password. Try Again."
         redirect_to "/sessions/new"
         # If the passwords match, send users to the places file
