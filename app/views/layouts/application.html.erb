@@ -15,7 +15,6 @@
       <%= session["username"] %>
     </div>
     <div>
-      <% @current_user = User.find_by({"id" => session["user_id"]})%>
       <% if @current_user != nil %>
         Logged in as: <%= @current_user["username"] %>
         <a href="/">Home</a>
