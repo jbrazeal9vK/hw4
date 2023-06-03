@@ -5,7 +5,7 @@
     </div>
     <div class="col-sm-3 text-end">
       <% if @current_user != nil %>
-        <a href="/places/new" class="btn btn-primary">New Post</a>
+        <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-primary">New Post</a>
       <% end %>
     </div>
   </div>
@@ -17,11 +17,13 @@
     <h3><%= post["title"] %></h3>
     <h4><%= post["posted_on"] %></h4>
     <p><%= post["description"] %></p>
+    <p>
+      <% if post.image.attached? %>
+        <img src="<%= url_for(post.image) %>" class="img-fluid">
+      <% else %>
+        <img src="<%= post["image"] %>" class="img-fluid">
+      <% end %>
   <% end %>
-  
-  <p>
-    <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
-  </p>
 
 <% else %>
   Login to see your posts!

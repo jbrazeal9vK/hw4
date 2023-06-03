@@ -16,6 +16,10 @@
       <%= form.date_field "posted_on" %>
     </p>
     <p>
+      <%= form.label "image" %>
+      <%= form.file_field "image", :class => "form-control" %>
+    </p>
+    <p>
       <%= form.submit %>
     </p>
   <% end %>
