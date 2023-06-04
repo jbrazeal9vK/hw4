@@ -11,8 +11,12 @@
   </div>
 </div>
 
-<ul>
+<ul class="container mt-2 list-unstyled">
   <% for place in @places %>
-    <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
+    <ul>
+      <li>
+        <a href="/places/<%= place["id"] %>"><%= place["name"] %></a>
+      </li>
+    </ul>
   <% end %>
 </ul>
